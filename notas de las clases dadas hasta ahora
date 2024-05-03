@@ -1,0 +1,398 @@
+Entrada/salida
+print():imprimir
+input():entrar dato
+open()
+format()
+Ayuda para programar/debugging
+help()
+dir()
+type()
+id()
+hash()
+Funciones matemáticas
+abs()
+round()
+pow()
+Estructuras de datos
+list()
+dict()
+tuple()
+set()
+Generación de secuencias iterables
+range()
+enumerate()
+Operaciones con objetos iterables
+len()
+sum()
+max()
+min()
+Modificaciones de objetos iterables
+sorted()
+reversed()
+Funciones aplicadas a iterables
+map()
+filter()
+zip()
+
+
+
+# un diccionario es una estructura de datos que permite almacenar pares clave-valor.
+
+
+
+mi_diccionario = {'nombre': 'Juan', 'edad': 30, 'ciudad': 'Madrid'}
+
+# Acceder a un valor utilizando una clave
+print(mi_diccionario['nombre'])  # Output: Juan
+
+# Agregar una nueva clave-valor
+mi_diccionario['ocupacion'] = 'Ingeniero'
+
+# Modificar un valor existente
+mi_diccionario['edad'] = 31
+
+# Eliminar una clave-valor
+del mi_diccionario['ciudad']
+
+print(mi_diccionario)  # Output: {'nombre': 'Juan', 'edad': 31, 'ocupacion': 'Ingeniero'}
+
+
+
+""" Metodos de los diccionarios"""
+
+# dict.values(): Devuelve una vista de los valores del diccionario.
+
+# dict.items(): Devuelve una vista de los pares clave-valor del diccionario.
+
+# dict.keys(): Devuelve una vista de las claves del diccionario.
+
+# dict.clear(): Elimina todos los elementos del diccionario.
+
+# len(dict): Devuelve la cantidad de elementos (pares clave-valor) en el diccionario.
+
+
+
+
+""" Devolver la lista de valores de un diccionario """
+"""
+mi_diccionario = {'a': 1, 'b': 2, 'c': 3}
+valores = mi_diccionario.values()
+print(valores)  # Output: dict_values([1, 2, 3])
+"""
+
+
+
+""" Devuelve clave-valor en el diccionario.  """
+"""
+mi_diccionario = {'a': 1, 'b': 2, 'c': 3}
+items = mi_diccionario.items()
+print(items)
+"""
+
+
+
+""" Iterar sobre los valores """
+"""
+mi_diccionario = {'a': 1, 'b': 2, 'c': 3}
+
+print("Iterando sobre los valores del diccionario:")
+for valor in mi_diccionario.values():
+    print(valor)
+"""
+
+
+""" Iterar sobre los pares clave-valor """
+
+
+"""
+mi_diccionario = {'a': 1, 'b': 2, 'c': 3}
+
+# Iterar sobre los pares clave-valor
+print("Iterando sobre los pares clave-valor del diccionario:")
+for clave, valor in mi_diccionario.items():
+    print(f"Clave: {clave}, Valor: {valor}")
+"""
+
+
+""" Iterar sobre las claves """
+
+
+"""
+mi_diccionario = {'a': 1, 'b': 2, 'c': 3}
+
+# Obtener una vista de las claves del diccionario
+claves = mi_diccionario.keys()
+
+# Iterar sobre las claves y mostrarlas
+print("Claves del diccionario:")
+for clave in claves:
+    print(clave)
+"""
+
+
+""" Eliminar todoos los elementos del diccionario """
+
+mi_diccionario = {'a': 1, 'b': 2, 'c': 3}
+
+# Limpiar el diccionario
+mi_diccionario.clear()
+
+# Verificar si el diccionario está vacío
+if not mi_diccionario:
+    print("El diccionario está vacío.")
+else:
+    print("El diccionario no está vacío.")
+
+
+
+
+""" Ejemplos de posibles usos de .values() y .items() en un caso real """
+
+
+def calcular_saldo_restante(salario, gastos):
+    total_gastos = sum(gastos.values())
+    saldo_restante = salario - total_gastos
+    return saldo_restante
+
+def mostrar_resumen_gastos(gastos, saldo_restante):
+    print("\nResumen de gastos:")
+    for categoria, monto in gastos.items():
+        print(f"{categoria.capitalize()}: ${monto:.2f}")
+    print(f"\nSaldo restante: ${saldo_restante:.2f}")
+
+
+
+
+# .2f formatea un numero tipo float a dos decimales
+# ejemplo
+numero = 3.14159
+cadena_formateada = "{:.2f}".format(numero)
+print(cadena_formateada)  # Salida: 3.14
+
+
+
+""" CODIGO apoyo clase funciones """
+
+
+
+""" Elementos de una funcion """
+
+
+def mi_funcion(parametro1, parametro2):
+    # Cuerpo de la función
+    # Puede contener cualquier número de declaraciones
+    pass
+
+
+
+# Hay funciones integradas de Python len() sum() sort()
+
+
+""" Ejemplo 1 """
+
+
+suma_sin_funcion = 3 + 4
+print(suma_sin_funcion)
+
+
+
+def sumar_numeros_encapsulado(a, b):
+    suma = a + b
+    return suma
+
+# Llamada a la función
+resultado = sumar_numeros_encapsulado(3, 4)
+print("El resultado de la suma es:", resultado)
+
+
+
+""" Ejemplo 2 """
+
+lista_numeros = [1, 2, 3, 4, 5]
+suma = sum(lista_numeros)
+
+lista_notas = [3.5, 4, 3, 4.5, 5]
+
+
+def sumar_lista_encapsulado(lista):
+    suma = sum(lista)
+    return suma
+
+# Llamada a la función
+numeros = [1, 2, 3, 4, 5]
+resultado = sumar_lista_encapsulado(numeros)
+print("La suma de la lista es:", resultado)
+
+
+
+""" Ejemplo 3 """
+
+
+def calcular_promedio(numeros):
+    total = sum(numeros)
+    promedio = total / len(numeros)
+    return promedio
+
+lista_numeros = [10, 20, 30, 40, 50]
+promedio = calcular_promedio(lista_numeros)
+print("El promedio de la lista es:", promedio)
+
+
+
+""" Ejemplo 4 """
+
+
+def es_palindromo(cadena):
+    # Convertir la cadena a minúsculas y eliminar espacios en blanco
+    #cadena = cadena.lower().replace(" ", "")
+    cadena = cadena.replace(" ", "").lower()
+    # Comparar la cadena original con su reverso
+    return cadena == cadena[::-1] # invierete la cadena
+
+
+palabra = "reconocer"
+resultado = es_palindromo(palabra)
+if resultado:
+    print(f'La palabra "{palabra}" es un palíndromo.')
+else:
+    print(f'La palabra "{palabra}" no es un palíndromo.')
+
+
+
+""" Ejemplo 5 """
+
+
+
+def invertir_lista(lista):
+    return lista[::-1]
+
+# Ejemplo de uso de la función
+mi_lista = [1, 2, 3, 4, 5]
+lista_invertida = invertir_lista(mi_lista)
+print("Lista original:", mi_lista)
+print("Lista invertida:", lista_invertida)
+
+
+
+# Problema 1: calcular la suma de valores de un diccionario
+
+
+def calcular_suma(diccionario):
+    suma_resultado = {}
+    for clave, valores in diccionario.items():
+        suma_resultado[clave] = sum(valores)
+    return suma_resultado
+
+# Ejemplo de uso
+mi_diccionario = {'a': [1, 2, 3], 'b': [4, 5, 6], 'c': [7, 8, 9]}
+resultado = calcular_suma(mi_diccionario)
+print(resultado)
+
+
+
+
+# Problema 2: Contar la cantidad de veces que aparece cada letra en una cadena
+# y la salida mostrarla en formato de diccionario
+
+def contar_letras(cadena):
+    frecuencia_letras = {}
+    for letra in cadena:
+        if letra in frecuencia_letras:
+            frecuencia_letras[letra] += 1
+        else:
+            frecuencia_letras[letra] = 1
+    return frecuencia_letras
+
+# Ejemplo de uso
+cadena = "hola mundo"
+frecuencia = contar_letras(cadena)
+print(frecuencia)
+
+
+# Problema 3: Calcular la cantidad de veces que aparece cada numero en una lista
+# y la salida mostrarla en formato de diccionario
+
+def contar_numeros(lista):
+    frecuencia_numeros = {}
+    for numero in lista:
+        if numero in frecuencia_numeros:
+            frecuencia_numeros[numero] += 1
+        else:
+            frecuencia_numeros[numero] = 1
+    return frecuencia_numeros
+
+# Ejemplo de uso
+numeros = [1, 2, 3, 2, 3, 3, 4, 4, 4, 4]
+frecuencia = contar_numeros(numeros)
+print(frecuencia)
+
+
+
+# Problema 1: Contar la cantidad de palabras en una cadena
+
+'''def contar_palabras(cadena):
+    # Dividir la cadena en palabras usando espacios en blanco como separadores
+    palabras = cadena.split()
+    # Contar la cantidad de palabras
+    cantidad_palabras = len(palabras)
+    return cantidad_palabras
+
+# Ejemplo de uso de la función
+texto = "Esta es una cadena"
+cantidad = contar_palabras(texto)
+print("Cantidad de palabras en la cadena:", cantidad)
+
+
+# Problema 2: Verificar si una cadena es palindromo
+
+# Problema 3: Contar la cantidad de vocales en una cadena
+
+
+
+
+
+
+def contar_vocales(cadena):
+    # Convertir la cadena a minúsculas para hacer la búsqueda de vocales insensible a mayúsculas
+    cadena = cadena.lower()
+    # Inicializar un contador para las vocales
+    cantidad_vocales = 0
+    # Definir un conjunto de vocales
+    vocales = {'a', 'e', 'i', 'o', 'u'}
+    # Iterar sobre cada carácter en la cadena
+    for caracter in cadena:
+        # Verificar si el carácter es una vocal
+        if caracter in vocales:
+            cantidad_vocales += 1
+    return cantidad_vocales
+
+# Ejemplo de uso de la función
+texto = "Python es un lenguaje de programación"
+cantidad = contar_vocales(texto)
+print("Cantidad de vocales en la cadena:", cantidad)
+
+
+
+"""
+Problema 4: Crear una funcion para registrar documento, por supuesto crear los input que le pida la informacion
+"""
+'''
+nombre=input("Escribe tu nombre: ")
+documento=int(input("Escribe tu documento: "))
+
+def recolectarInformacion(nombre,documento):
+    return print(f"Hola {nombre} con numero de documento {documento}")
+
+persona1=recolectarInformacion(nombre,documento)
+
+# Problema 5: Crear una funcion para agregar el IVA de un producto 19%
+
+# Problema 5: Crear una funcion para hacer un decsuento de 5% si el cliente compra 5 o mas productos
+
+# Problema 6: Calcular saldo restante de un salario de $2.000.000 despues de gastos por $1.000.000
+
+
+
+
+///////////////////////////////////////////////////////////////////////
+items() El método items() devuelve una lista con los keys y values del diccionario.

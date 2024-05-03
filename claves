@@ -1,0 +1,259 @@
+# ejercicio de inventario producto,precio,cantidad
+def main():
+    nombre_precio={}
+    nombre_cantidad={}
+    while True:
+        menu()
+        option=int(input("ingrese un numero"))
+        if option==1:
+            entered_new_product(nombre_precio,nombre_cantidad)
+        elif option==2:
+            actualizar(nombre_cantidad)
+        elif option==3:
+            delete_product(nombre_cantidad,nombre_precio)
+        elif option==4:
+            listarproductos(nombre_cantidad)
+        elif option==5:
+            verificarsiesta(nombre_cantidad)
+        elif option==6:
+            break
+        else:print("ingrese una opcion valida")
+               
+def menu():
+    print("1 Agregar un nuevo producto al inventario.")
+    print ("2 Actualizar la cantidad de un producto existente en el inventario.")
+    print ("3 Eliminar un producto del inventario.")
+    print ("4 Listar todos los productos en el inventario.")
+    print ("5 Verificar si un producto específico está en el inventario.")    
+def entered_new_product(dic1, dic2):
+    name=input("ingrese el nombre de el producto")
+    price=int(input("ingrese el prcio de el producto"))
+    cantidad=int(input("ingrese la cantidad"))
+    dic1[name]=price
+    dic2[name]=cantidad
+    return dic1,dic2
+def actualizar(dic1):
+    productoaactualizar=input("ingrese el nombre de el producto a actualizar")
+    cantidadnueva=int(input("ingrese la cantidad nueva a actualizar"))
+    for buscar1 in dic1.keys():
+        if buscar1 ==productoaactualizar:
+            print("se actualizara el producto")
+            dic1[productoaactualizar]=cantidadnueva
+        else: print("este producto que quiere actualizar no existe")
+    return dic1
+
+def delete_product(dic1,dic2):
+    producto=input("ingresa el producto que deseas eliminar")
+    for buscar in dic1.keys():
+        pass
+    if producto==buscar:
+        print("el producto si esta en el inventario")
+        dic1.pop(producto)
+        dic2.pop(input("confirme nuevamente el producto a eliminar"))
+        print("producto eliminado")
+    else:print("el producto no existe")
+
+def listarproductos(dic1):
+ for i,clave in enumerate(dic1.keys(),0):
+     print (i,clave)
+
+def verificarsiesta(dic1):
+    verificar=input("ingrese el producto que esta buscando")
+    for bucar in dic1.keys():
+        pass
+    if verificar==bucar:
+        print("el producto: ",verificar, "si esta en el inventario")
+    else: print("el producto no esta")
+main()
+# otro ejercicio
+""""Seguimiento de Ingresos y Gastos
+Descripción del problema: Debes crear un programa para realizar un seguimiento de tus gastos
+mensuales y categorizarlos. El programa debe permitir al usuario ingresar su salario mensual y luego
+registrar los gastos adicionales que ha realizado durante el mes. Los gastos se deben categorizar en
+diferentes categorías, como "alimentos", "transporte", "vivienda" y "entretenimiento". El programa
+calculará el saldo restante después de restar los gastos al salario mensual y mostrará el total de
+gastos en cada categoría, así como el saldo restante. 
+"""""
+def principal():
+    diccionario={}
+    totalingreso=int(input("ingrese su sueldo mensual"))
+    datos(diccionario)
+    while True:
+        menu_principal()
+        opcion=int(input("ingrese una opcion"))
+        if opcion==1:
+            gastos_adicionales(diccionario)
+        elif opcion==2:
+                total_gastos(diccionario,totalingreso)
+            
+        elif opcion==3:
+            total_gastos_por_categoria(diccionario)
+        elif opcion==4:
+            print("hasta luego, gracias por usar el programa")
+            break
+        else:
+            print("opcion invalida ingrese una opcion valida ")
+def menu_principal():
+    print("seleccione una opcion")
+    print("1 ingresar gastos adicionales") 
+    print("2 Calcular el saldo restante,mostrar el total de gastos")
+    print("3 mostrar gastos por categoria")
+    print("4 salir de el programa.")
+def datos(diccionario):
+    diccionario["alimentos"]=int(input("ingrese su gastos en alimentos: "))
+    diccionario["transporte"]=int(input("ingrese su gastos en transporte: "))
+    diccionario["vivienda"]=int(input("ingrese su gastos en vivienda: "))
+    diccionario["entretenimiento"]=int(input("ingrese su gastos en entretenimiento: "))
+def gastos_adicionales(diccionario):
+   while True:
+    print("seleccione una opcion")
+    print("1 ingresar gastos adicionales") 
+    print("0 volver al menu principal") 
+    option=int(input("ingrese una opcion: "))
+    if option==1:
+        monto=int(input("ingrese el monto de el gasto: "))
+        categoria=input("ingrese la categoria: ")
+        for cate,valor in diccionario.items():
+            if cate== categoria:
+                diccionario[cate]=valor+monto
+                print("gasto sumado con exito en la categoria ")
+                break
+        else:
+            print("no se puede agregar el gasto verifique la caregoria")
+    elif(option==0):
+        print("retornas al menu principal")
+        break
+    else:
+        print("ingrese una opcion valida")
+def total_gastos(diccionario,ingreso_total):
+    cont=0
+    total=0
+    cont=sum(diccionario.values())
+    print("el total de gastos es: ",cont)
+    total=ingreso_total-cont
+    if total<0:
+        print( "Estás gastando más de lo que ganas: ",total)
+    else:print("tu saldo restante es: ",total)
+def total_gastos_por_categoria(diccionario):
+    lista=[]
+    print("tus gastos son: ")
+    for encontrar in diccionario.items:
+        lista=[encontrar]
+        print(lista)
+principal()
+#ejercicio de lista de tareas
+def lista_de_tareas():
+  listatarea=[]
+  print("bienvennido al gestot de tareas")
+  while True:
+    opciones_menu()
+    opcion=int(input("ingrese una opcion"))
+    if  opcion==1:
+      agregar_tareas(listatarea)
+      print(listatarea)
+    elif opcion==2:
+      modificar_tarea(listatarea)
+    elif opcion==3:
+      eliminar_tarea(listatarea)
+    elif opcion==4:
+      verificar_tarea(listatarea)
+
+def opciones_menu():
+  print("(1) Agregar tarea")
+  print("(2)Modificar tarea")
+  print("(3)Eliminar tarea")
+  print("(4)Verificar tarea")
+
+def agregar_tareas(listadetarea):
+  tareasnueva=input("ingrese el nombre de la tarea que va a agregar")
+  dictareas={"nombretarea":tareasnueva, "¿completada?":False}
+  listadetarea.append(dictareas)
+  print("tarea agregada")
+
+def modificar_tarea(listadetarea):
+  nombretarea=input("ingrese el nombre de la tarea")
+  nombrenuevo=input("ingrese el nombre nuevo de la tarea")
+
+  for iterar in listadetarea:
+    
+    for tareas in iterar.values():
+      if tareas== nombretarea:
+        iterar["nombretarea"]=nombrenuevo
+        print("tarea modificada con exito")
+
+def eliminar_tarea(listadetarea):
+  for indice, diccionarios in enumerate(listadetarea,0):
+    for clave,valor in diccionarios.items():
+      print(indice,clave,valor)
+  eliminar=int(input("ingrese el indice de el producto que va a eliminar"))
+  
+  if eliminar == indice:
+    print("tarea eliminada con exito")
+    listadetarea.pop(eliminar)
+  else:("el indice indicado no existe")
+
+def mostrarindice(listadetarea):
+  for indice, diccionarios in enumerate(listadetarea,0):
+    for clave,valor in diccionarios.items():
+      print(indice,clave,valor)
+
+def verificar_tarea(listadetarea):
+  nombrestado=input("ingrese el nombre de la tarea")
+  for iterar in listadetarea:
+    for tareas in iterar.values():
+      if tareas== nombrestado:
+        iterar["¿completada?"]=True
+        print("tarea modificada con exito")
+        #***********************************************************************************
+#plantilla para el primero largo de el filtro
+def main():
+    nombre,apellido,documento=dato()
+    diccionariofact={}
+    dato()
+    while True:
+        menu()
+        opcion=int(input("ingrese una opcion"))
+        if opcion==1:
+            dato()
+        elif opcion==2:
+            regprod(diccionariofact)
+        elif opcion==3:
+            listaprod(diccionariofact)
+        elif opcion==4:
+            mostrarfact(diccionariofact,nombre,apellido,documento)
+    
+
+
+
+def menu():
+    print("(1) Volver a registrar el documento, nombres y apellidos del cliente")
+    print("(2) Registrar un nuevo producto a la factura (nombre producto, valor producto)")
+    print("(3) Listar productos actuales de la factura.")
+    print("(4) Mostrar factura")
+    print("(5) Apagar el programa" )
+    
+    
+
+def dato():
+    nombre=input("ingrese su nombre: ")
+    apellido=input("ingrese su apellido: ")
+    documento=int(input("ingrese numero de documento: "))
+    return nombre,apellido,documento
+
+def regprod(dic):
+    nombreprod=input("ingrese el nombre de el producto a registrar")
+    valorprod=int(input("ingrese el valor de el producto nuevo "))
+    dic[nombreprod]=valorprod
+
+def listaprod(dic1):
+    for productos in dic1.keys():
+        print(productos)
+    
+def mostrarfact(dic2,nombre,ape,docu):
+    print(nombre)
+    print(ape)
+    print(docu)
+    for productos,valores in dic2.items():
+        print(f"los productos son",{productos},"y los valores son: ",{valores})
+    total=0
+    print("el total de la compra es: ", sum(dic2.values()))

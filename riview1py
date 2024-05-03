@@ -1,0 +1,115 @@
+def lista_de_tareas():
+  listatarea=[]
+  print("bienvennido al gestot de tareas")
+  while True:
+    opciones_menu()
+    opcion=int(input("ingrese una opcion"))
+    if  opcion==1:
+      agregar_tareas(listatarea)
+      print(listatarea)
+    elif opcion==2:
+      modificar_tarea(listatarea)
+    elif opcion==3:
+      eliminar_tarea(listatarea)
+    elif opcion==4:
+      verificar_tarea(listatarea)
+
+def opciones_menu():
+  print("(1) Agregar tarea")
+  print("(2)Modificar tarea")
+  print("(3)Eliminar tarea")
+  print("(4)Verificar tarea")
+
+def agregar_tareas(listadetarea):
+  tareasnueva=input("ingrese el nombre de la tarea que va a agregar")
+  dictareas={"nombretarea":tareasnueva, "¿completada?":False}
+  listadetarea.append(dictareas)
+  print("tarea agregada")
+
+def modificar_tarea(listadetarea):
+  nombretarea=input("ingrese el nombre de la tarea")
+  nombrenuevo=input("ingrese el nombre nuevo de la tarea")
+
+  for iterar in listadetarea:
+    
+    for tareas in iterar.values():
+      if tareas== nombretarea:
+        iterar["nombretarea"]=nombrenuevo
+        print("tarea modificada con exito")
+
+def eliminar_tarea(listadetarea):
+  for indice, diccionarios in enumerate(listadetarea,0):
+    for clave,valor in diccionarios.items():
+      print(indice,clave,valor)
+  eliminar=int(input("ingrese el indice de el producto que va a eliminar"))
+  
+  if eliminar == indice:
+    print("tarea eliminada con exito")
+    listadetarea.pop(eliminar)
+  else:("el indice indicado no existe")
+
+def mostrarindice(listadetarea):
+  for indice, diccionarios in enumerate(listadetarea,0):
+    for clave,valor in diccionarios.items():
+      print(indice,clave,valor)
+
+def verificar_tarea(listadetarea):
+  nombrestado=input("ingrese el nombre de la tarea")
+  for iterar in listadetarea:
+    for tareas in iterar.values():
+      if tareas== nombrestado:
+        iterar["¿completada?"]=True
+        print("tarea modificada con exito")
+  
+      
+ 
+  
+
+  
+  
+
+
+  
+
+    
+
+    
+  
+
+
+    
+
+
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+lista_de_tareas()
